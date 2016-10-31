@@ -118,11 +118,14 @@ if [ -z "$ANDROID_TOOLCHAIN" ] || [ ! -d "$ANDROID_TOOLCHAIN" ]; then
 fi
 
 case $_ANDROID_TARGET_SELECT in
-	arch-arm)	  
+	arch-arm)
       ANDROID_TOOLS="arm-linux-androideabi-gcc arm-linux-androideabi-ranlib arm-linux-androideabi-ld"
 	  ;;
-    arch-arm64-v8a)
-      ANDROID_TOOLS="aarch64-linux-android-gcc aarch64-linux-android-randlib aarch64-linux-android-ld"
+	arch-arm-v7a)
+      ANDROID_TOOLS="arm-linux-androideabi-gcc arm-linux-androideabi-ranlib arm-linux-androideabi-ld"
+	  ;;
+	arch-arm64-v8a)
+      ANDROID_TOOLS="aarch64-linux-android-gcc aarch64-linux-android-ranlib aarch64-linux-android-ld"
       ;;
 	arch-x86)	  
       ANDROID_TOOLS="i686-linux-android-gcc i686-linux-android-ranlib i686-linux-android-ld"
