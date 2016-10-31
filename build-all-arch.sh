@@ -71,10 +71,11 @@ for arch in ${archs[@]}; do
     make depend
     make all
 
-    file libcrypto.so
-    file libssl.so
-    cp libcrypto.so ../prebuilt/${arch}/libcrypto.so
-    cp libssl.so ../prebuilt/${arch}/libssl.so
+    for file in libcrypto.so libssl.so libcrypto.a libssl.a; do
+        file "$file"
+        cp "$file" "../prebuilt/$arch/$file"
+    done
+
     cd ..
 done
 exit 0
