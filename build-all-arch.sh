@@ -2,6 +2,16 @@
 #
 # http://wiki.openssl.org/index.php/Android
 #
+
+OPENSSL_VERSION=1.0.1j
+
+if [ ! -d openssl-$OPENSSL_VERSION ]; then
+    if [ ! -f openssl-$OPENSSL_VERSION.tar.gz ]; then
+        wget https://www.openssl.org/source/openssl-$OPENSSL_VERSION.tar.gz
+    fi
+    tar xzf openssl-$OPENSSL_VERSION.tar.gz
+fi
+
 set -e
 rm -rf prebuilt
 mkdir prebuilt
@@ -53,7 +63,7 @@ for arch in ${archs[@]}; do
     . ./setenv-android-mod.sh
 
     echo "CROSS COMPILE ENV : $CROSS_COMPILE"
-    cd openssl-1.0.1j
+    cd openssl-$OPENSSL_VERSION
 
     xCFLAGS="-DSHARED_EXTENSION=.so -fPIC -DOPENSSL_PIC -DDSO_DLFCN -DHAVE_DLFCN_H -mandroid -I$ANDROID_DEV/include -B$ANDROID_DEV/$xLIB -O3 -fomit-frame-pointer -Wall"
 
