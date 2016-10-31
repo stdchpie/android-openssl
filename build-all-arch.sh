@@ -3,7 +3,7 @@
 # http://wiki.openssl.org/index.php/Android
 #
 
-OPENSSL_VERSION=1.0.1j
+OPENSSL_VERSION=1.0.2j
 
 if [ ! -d openssl-$OPENSSL_VERSION ]; then
     if [ ! -f openssl-$OPENSSL_VERSION.tar.gz ]; then
