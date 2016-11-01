@@ -77,5 +77,6 @@ for arch in ${archs[@]}; do
     cp libssl.so ../prebuilt/${arch}/libssl.so
     cd ..
 done
+cp -RL openssl-$OPENSSL_VERSION/include prebuilt
 exit 0
 
